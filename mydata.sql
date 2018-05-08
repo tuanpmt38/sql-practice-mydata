@@ -28,3 +28,19 @@ alter table contacts add email varchar(40) ;
 
 /* delete column email in contacts*/
 alter table contacts drop email ;
+
+/*create primary key and foregin key*/
+create table customers (
+id int not null auto_increment primary key,
+customer_name varchar(40) not null,
+address varchar(255),
+email varchar(255)
+);
+
+create table orders (
+id int not null auto_increment,
+staff varchar(40) not null,
+customer_id int,
+foreign key(customer_id)references customers(id),
+constraint orders_pk primary key(id)
+);
